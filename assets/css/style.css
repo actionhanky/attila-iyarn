@@ -263,8 +263,10 @@ td, th {
 .icon-linkedin:before {
   content: '\f0e1'; }
 
-/* '' */
-/* '' */
+/* '' */
+.icon-arrow-left-open:before {
+  content: '\e803'; }
+
 /* latin-ext */
 @font-face {
   font-family: 'Libre Baskerville';
