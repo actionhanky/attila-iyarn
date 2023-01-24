@@ -241,7 +241,10 @@ td, th {
 
 /* '' */
 .icon-search:before {
-  content: '\e805'; }
+  content: '\e805';
+  /* '' */ }
+  .icon-search:before .icon-home:before {
+    content: '\E900'; }
 
 /* '' */
 .icon-rss:before {
@@ -1044,7 +1047,7 @@ textarea {
    ========================================================================== */
 .blog-header {
   position: relative;
-  padding-top: calc(6rem + 4vw); }
+  padding-top: calc(16rem + 4vw); }
   .blog-header.has-cover {
     padding-top: calc(24rem + 8vw);
     color: white;
@@ -1111,7 +1114,7 @@ textarea {
   display: block;
   margin-top: 1rem;
   padding: 0;
-  font-size: 2em;
+  font-size: 3em;
   line-height: 1.33334em;
   color: var(--color-content-secondary); }
 
