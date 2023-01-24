@@ -241,10 +241,11 @@ td, th {
 
 /* '' */
 .icon-search:before {
-  content: '\e805';
-  /* '' */ }
-  .icon-search:before .icon-home:before {
-    content: '\E900'; }
+  content: '\e805'; }
+
+/* '' */
+.icon-home:before {
+  content: '\E900'; }
 
 /* '' */
 .icon-rss:before {
