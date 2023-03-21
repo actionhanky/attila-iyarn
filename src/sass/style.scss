@@ -13,10 +13,12 @@ $inner: calc(64rem + 8vw);
 /* ==========================================================================
    Basics
    ========================================================================== */
+
 :root {
-	--font-primary: 'Berkshire Swash', cursive;
-	--font-secondary: 'Libre Baskerville', serif;
-}
+    --font-title: 'Pacifico', cursive;
+    --font-primary: 'Open Sans', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+  }
 
 html {
 	font-size: 62.5%;
@@ -956,6 +958,7 @@ textarea {
 }
 
 .blog-name {
+	font-family: var(--font-title);
 	display: block;
 	margin: 0;
 	padding: 0;
