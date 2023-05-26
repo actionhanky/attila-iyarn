@@ -20,14 +20,22 @@
 
 	<script>
 		var localTheme = localStorage.getItem('attila_theme');
-		if (localTheme !== 'dark') {
+		if (!localTheme) {
 			localTheme = 'light'; // Set default theme to light
 		}
 
 		document.documentElement.classList.add('theme-' + localTheme);
 
 		function toggleTheme() {
-			var currentTheme = document.documentElement.classList.contains('theme-light') ? 'dark' : 'light';
+			var currentTheme;
+
+			if (localTheme === 'light') {
+				currentTheme = 'dark';
+			} else if (localTheme === 'dark') {
+				currentTheme = 'light';
+			} else {
+				currentTheme = 'system';
+			}
 
 			// Update the theme preference in local storage
 			localStorage.setItem('attila_theme', currentTheme);
