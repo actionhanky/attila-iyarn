@@ -33,10 +33,8 @@
 				currentTheme = 'dark';
 			} else if (localTheme === 'dark') {
 				currentTheme = 'light';
-			} else {
-				// If the theme is set to system or any other value, switch to the opposite theme
-				var systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-				currentTheme = (systemTheme === 'light') ? 'dark' : 'light';
+			} else if (localTheme === 'system' || !localTheme) {
+				currentTheme = 'light';
 			}
 
 			// Update the theme preference in local storage
@@ -49,6 +47,7 @@
 			localTheme = currentTheme;
 		}
 	</script>
+
 
 	{{ghost_head}}
 
