@@ -20,22 +20,14 @@
 
 	<script>
 		var localTheme = localStorage.getItem('attila_theme');
-		if (!localTheme) {
+		if (localTheme !== 'dark') {
 			localTheme = 'light'; // Set default theme to light
 		}
 
 		document.documentElement.classList.add('theme-' + localTheme);
 
 		function toggleTheme() {
-			var currentTheme;
-
-			if (localTheme === 'light') {
-				currentTheme = 'dark';
-			} else if (localTheme === 'dark') {
-				currentTheme = 'light';
-			} else if (localTheme === 'system' || !localTheme) {
-				currentTheme = 'light'; // Set the default toggle behavior to light theme
-			}
+			var currentTheme = document.documentElement.classList.contains('theme-light') ? 'dark' : 'light';
 
 			// Update the theme preference in local storage
 			localStorage.setItem('attila_theme', currentTheme);
@@ -47,7 +39,6 @@
 			localTheme = currentTheme;
 		}
 	</script>
-
 
 	{{ghost_head}}
 
