@@ -34,7 +34,8 @@
 			} else if (localTheme === 'dark') {
 				currentTheme = 'light';
 			} else if (localTheme === 'system' || !localTheme) {
-				currentTheme = 'light';
+				var systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				currentTheme = (systemTheme === 'light') ? 'dark' : 'light';
 			}
 
 			// Update the theme preference in local storage
