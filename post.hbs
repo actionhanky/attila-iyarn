@@ -38,9 +38,11 @@
               {{img_url feature_image size="m"}} 640w,
               {{img_url feature_image size="l"}} 960w,
               {{img_url feature_image size="xl"}} 1920w"
-      src="{{img_url feature_image size="xl"}}"
+      		src="{{img_url feature_image size="xl"}}"
 			alt="{{title}}" />
 		</div>
+		{{else}}
+			<img src="https://upload.wikimedia.org/wikipedia/commons/0/05/WTFPL_logo.svg">
 		{{/if}}
 	</div>
 </header>
