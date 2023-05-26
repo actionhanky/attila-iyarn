@@ -1570,9 +1570,7 @@ textarea {
 }
 
 .nav-credits-wrapper {
-	display: flex;
-	justify-content: center;
-	margin: 1rem 0; /* Adjust the margin as needed */
+	flex-shrink: 0;
 }
 
 .nav-credits {
