@@ -27,7 +27,7 @@
 		document.documentElement.classList.add('theme-' + localTheme);
 
 		function toggleTheme() {
-			var currentTheme = document.documentElement.classList.contains('theme-light') ? 'dark' : 'light';
+			var currentTheme = localTheme === 'light' ? 'dark' : 'light';
 
 			// Update the theme preference in local storage
 			localStorage.setItem('attila_theme', currentTheme);
@@ -39,6 +39,7 @@
 			localTheme = currentTheme;
 		}
 	</script>
+
 
 	{{ghost_head}}
 
@@ -79,7 +80,7 @@
 				{{navigation type="secondary"}}
 				{{/if}}
 				<span class="nav-credits">No drips, corn flakes, or lumps of wood.</span>
-				<span class="nav-credits">{{t "Published with"}} <a href="https://ghost.org">Ghost</a> &bull; {{t "Derived from" }} <a href="https://github.com/zutrinken/attila">Attila</a> &bull; <a class="menu-item js-theme" href="#" onclick="toggleTheme();" data-system="System theme" data-dark="Dark theme" data-light="Light theme"> <span class="theme-icon"></span> <span class="theme-text">Toggle theme</span> </a> </span>
+				<span class="nav-credits">{{t "Published with"}} <a href="https://ghost.org">Ghost</a> &bull; {{t "Derived from" }} <a href="https://github.com/zutrinken/attila">Attila</a> &bull; <a class="menu-item js-theme" href="#" onclick="toggleTheme();" data-dark="Dark theme" data-light="Light theme"> <span class="theme-icon"></span> <span class="theme-text">Toggle theme</span> </a> </span>
 			</nav>
 		</div>
 
