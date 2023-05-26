@@ -19,45 +19,29 @@
 	</script>
 
 	<script>
-			var localTheme = localStorage.getItem('attila_theme');
-			switch (localTheme) {
-					case 'dark':
-							document.documentElement.classList.add('theme-dark');
-							break;
-					case 'light':
-							document.documentElement.classList.add('theme-light');
-							break;
-					default:
-							break;
-			}
+		var localTheme = localStorage.getItem('attila_theme');
+		if (!localTheme) {
+			localTheme = 'light'; // Set default theme to light
+		}
+
+		document.documentElement.classList.add('theme-' + localTheme);
+
+		function toggleTheme() {
+			var currentTheme = document.documentElement.classList.contains('theme-light') ? 'light' : 'dark';
+
+			// Update the theme preference in local storage
+			localStorage.setItem('attila_theme', currentTheme);
+
+			// Add/remove the corresponding theme class
+			document.documentElement.classList.remove('theme-' + localTheme);
+			document.documentElement.classList.add('theme-' + currentTheme);
+
+			localTheme = currentTheme;
+		}
 	</script>
 
-	{{#match @custom.color_scheme "Dark"}}
-		<script>localStorage.setItem('attila_theme', 'dark');</script>
-		<style>.js-theme {display:none!important;}</style>
-	{{/match}}
-
-	{{#match @custom.color_scheme "Light"}}
-		<script>localStorage.setItem('attila_theme', 'light');</script>
-		<style>.js-theme {display:none!important;}</style>
-	{{/match}}
-
-	{{#match @custom.color_scheme "!=" "Light"}}
-		{{#if @custom.darkmode_accent_color}}
-			<style>
-				.theme-dark:root {
-				  --ghost-accent-color: {{@custom.darkmode_accent_color}};
-				}
-				@media (prefers-color-scheme: dark) {
-				  html:not(.theme-light):root {
-				    --ghost-accent-color: {{@custom.darkmode_accent_color}};
-				  }
-				}
-			</style>
-		{{/if}}
-	{{/match}}
-
 	{{ghost_head}}
+
 </head>
 
 <body class="{{body_class}}">
@@ -95,7 +79,7 @@
 				{{navigation type="secondary"}}
 				{{/if}}
 				<span class="nav-credits">No drips, corn flakes, or lumps of wood.</span>
-				<span class="nav-credits">{{t "Published with"}} <a href="https://ghost.org">Ghost</a> &bull; {{t "Derived from" }} <a href="https://github.com/zutrinken/attila">Attila</a> &bull; <a class="menu-item js-theme" href="#" data-system="System theme" data-dark="Dark theme" data-light="Light theme"><span class="theme-icon"></span><span class="theme-text">System theme</span> </a> </span>
+				<span class="nav-credits">{{t "Published with"}} <a href="https://ghost.org">Ghost</a> &bull; {{t "Derived from" }} <a href="https://github.com/zutrinken/attila">Attila</a> &bull; <a class="menu-item js-theme" href="#" onclick="toggleTheme();" data-system="System theme" data-dark="Dark theme" data-light="Light theme"> <span class="theme-icon"></span> <span class="theme-text">Toggle theme</span> </a> </span>
 			</nav>
 		</div>
 
