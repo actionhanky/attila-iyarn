@@ -31,6 +31,7 @@
 			<h4 class="post-meta-author">{{authors separator=", "}}</h4>
 			<time datetime="{{date format='DD-MM-YYYY'}}">{{date format="DD MMM YYYY"}}</time> &bull; {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}
 		</div>
+		{{#if feature_image}}
 		<div class="post-cover cover">
 			<img
 			srcset="{{img_url feature_image size="s"}} 320w,
@@ -40,6 +41,7 @@
       		src="{{img_url feature_image size="xl"}}"
 			alt="{{title}}" />
 		</div>
+		{{/if}}
 	</div>
 </header>
 
